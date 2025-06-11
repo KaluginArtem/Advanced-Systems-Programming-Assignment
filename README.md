@@ -36,9 +36,10 @@ The following submodules can be found there:
 
 
 ### Installation
-
-```
-git clone
+To install and run this code locally:
+```bash
+git clone --recurse-submodules https://github.com/KaluginArtem/Advanced-Systems-Programming-Assignment.git
+cd Advanced-Systems-Programming-Assignment
 ```
 
 ### Tasks
