@@ -1,0 +1,9 @@
+[submodule "context"]
+	path = context
+	url = https://gitlab.uwe.ac.uk/br-gaster/context.git
+[submodule "simpletest_test"]
+	path = simpletest_test
+	url = https://github.com/kudaba/simpletest_test.git
+[submodule "simpletest"]
+	path = simpletest
+	url = https://github.com/kudaba/simpletest
