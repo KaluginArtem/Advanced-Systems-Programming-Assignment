@@ -1,0 +1,31 @@
+task1
+g++ -std=c++17 src/task1/ex1.cpp context/context.s -o build/ex1
+./build/ex1
+
+task1/ex1_fiber.cpp
+g++ -std=c++17 -I./context src/task1/ex1_fiber.cpp context/context.s -o build/ex1_fiber
+./build/ex1_fiber
+
+task2
+g++ -std=c++17 -I./context src/task2/test.cpp src/task2/fiber/fiber.cpp src/task2/scheduler/scheduler.cpp context/context.s -o build/task2
+./build/task2
+
+task3
+g++ -std=c++17 -I./context src/task3/test.cpp src/task3/fiber/fiber.cpp src/task3/scheduler/scheduler.cpp context/context.s -o build/task3
+./build/task3
+
+task4
+g++ -std=c++17 -I./context src/task4_additional_work/test.cpp src/task4_additional_work/fiber/fiber.cpp src/task4_additional_work/scheduler/scheduler.cpp context/context.s -o build/task4
+./build/task4
+
+General test
+g++ -std=c++17 \
+  -I. \
+  -Isimpletest \
+  test.cpp \
+  simpletest/simpletest.cpp \
+  src/task4_additional_work/fiber/fiber.cpp \
+  src/task4_additional_work/scheduler/scheduler.cpp \
+  context/context.s \
+  -o build/general_test
+./build/general_test
