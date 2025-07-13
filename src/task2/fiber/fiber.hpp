@@ -6,11 +6,11 @@
 class Fiber {
 public:
 
-    Fiber(void (*function)(), std::size_t stack_size = 4096);
+    Fiber(void (*function)(), std::size_t stack_size = 4096); // Constructor to create a fiber with a specific function and stack size.
 
-    ~Fiber();
+    ~Fiber(); // Destructor to clean up the fiber's resources.
     
-    Context* getContext();
+    Context* getContext(); // Returns the context of the fiber, which includes the stack and registers.
 
 private:
     Context _context; // The context of the fiber, which includes the stack and registers.

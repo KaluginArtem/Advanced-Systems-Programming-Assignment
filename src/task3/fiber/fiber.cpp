@@ -8,9 +8,9 @@ Fiber::Fiber(void (*function)(), std::size_t stack_size)
 
     uintptr_t sp_val = reinterpret_cast<uintptr_t>(sp);
     sp_val &= ~static_cast<uintptr_t>(0xF); // Align the stack pointer to a 16-byte boundary.
-    sp = reinterpret_cast<char*>(sp_val);
+    sp = reinterpret_cast<char*>(sp_val); // Align the stack pointer.
 
-    sp -= 128;
+    sp -= 128; // Reserve space for local variables, ensuring the stack pointer is still aligned.
     _stack_top = sp; // Set the stack top pointer.
 
     _context.rip = reinterpret_cast<void*>(function); // Set the instruction pointer to the function.
@@ -18,10 +18,9 @@ Fiber::Fiber(void (*function)(), std::size_t stack_size)
 }
 
 Fiber::~Fiber() {
-    // Free the stack memory allocated for the fiber.
-    delete[] _stack_bottom;
+    delete[] _stack_bottom; // Free the stack memory allocated for the fiber.
 }
 
 Context* Fiber::getContext() {
-    return &_context;
+    return &_context; // Return the context of the fiber, which includes the stack and registers.
 }
